@@ -1,0 +1,44 @@
+[
+  {
+    "ContainingType": "SistemaFerias.API.Controllers.SolicitacoesFeriasController",
+    "Method": "Get",
+    "RelativePath": "api/SolicitacoesFerias",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaFerias.API.Controllers.SolicitacoesFeriasController",
+    "Method": "SolicitarFerias",
+    "RelativePath": "api/SolicitacoesFerias",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "novaSolicitacao",
+        "Type": "SistemaFerias.API.Models.SolicitacaoFerias",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaFerias.API.Controllers.SolicitacoesFeriasController",
+    "Method": "Delete",
+    "RelativePath": "api/SolicitacoesFerias",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

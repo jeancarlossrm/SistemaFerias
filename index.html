@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teste - SistemaFerias.API</title>
+  <style>
+    :root {
+      --primary: #2563eb; --primary-dark: #1d4ed8; --success: #16a34a; --danger: #dc2626;
+      --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb; --gray-700: #374151; --gray-900: #111827;
+      --radius: 10px; --shadow: 0 4px 6px -1px rgba(0,0,0,.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f0f2f5; color: var(--gray-900); padding: 20px; }
+    .container { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    header { background: #fff; padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; }
+    header h1 { font-size: 1.5rem; color: var(--primary); }
+    header p { color: var(--gray-700); font-size: 0.9rem; margin-top: 5px; }
+    
+    .card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
+    .card h2 { font-size: 1.1rem; margin-bottom: 15px; border-bottom: 2px solid var(--gray-100); padding-bottom: 8px; }
+    
+    .form-group { margin-bottom: 15px; }
+    label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--gray-700); margin-bottom: 5px; text-transform: uppercase; }
+    input, select { width: 100%; padding: 10px; border: 1.5px solid var(--gray-200); border-radius: 6px; font-size: 0.95rem; outline: none; transition: border-color .2s; }
+    input:focus, select:focus { border-color: var(--primary); }
+    
+    button { padding: 10px 16px; border-radius: 6px; font-size: 0.9rem; font-weight: 600; cursor: pointer; border: none; transition: background .2s; }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-danger { background: var(--danger); color: #fff; padding: 6px 10px; font-size: 0.8rem; }
+    .btn-danger:hover { background: #b91c1c; }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--gray-200); }
+    th { background: var(--gray-50); font-weight: 700; color: var(--gray-700); }
+    tr:hover td { background: var(--gray-50); }
+    
+    .config-box { display: flex; gap: 10px; align-items: flex-end; margin-bottom: 15px; }
+    .config-box .form-group { flex: 1; margin-bottom: 0; }
+    
+    .toast { position: fixed; bottom: 20px; right: 20px; background: var(--gray-900); color: #fff; padding: 10px 16px; border-radius: 6px; font-size: 0.85rem; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 1000; }
+    .toast.show { opacity: 1; }
+    .toast.success { background: var(--success); }
+    .toast.error { background: var(--danger); }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>🏖️ Teste local - SistemaFerias.API</h1>
+    <p>Interface HTML pura baseada no seu contrato e controller C#</p>
+  </header>
+
+  <!-- Configuração da URL da API -->
+  <div class="card">
+    <h2>⚙️ Configuração do Endpoint</h2>
+    <div class="config-box">
+      <div class="form-group">
+        <label for="apiUrl">URL base da API (C#)</label>
+        <input type="text" id="apiUrl" value="https://localhost:7272" />
+      </div>
+      <button class="btn-primary" onclick="carregarSolicitacoes()">🔄 Atualizar Dados</button>
+    </div>
+  </div>
+
+  <!-- Formulário de Solicitação -->
+  <div class="card">
+    <h2>📝 Nova Solicitação de Férias (POST)</h2>
+    <form id="formFerias" onsubmit="enviarSolicitacao(event)">
+      <div class="form-group">
+        <label for="nomeFuncionario">Nome do Funcionário</label>
+        <input type="text" id="nomeFuncionario" placeholder="Ex: Maria Silva" required />
+      </div>
+
+      <div class="form-group">
+        <label for="dias">Quantidade de Dias (Apenas 20 ou 30)</label>
+        <select id="dias" required>
+          <option value="">— Selecione —</option>
+          <option value="20">20 dias</option>
+          <option value="30">30 dias</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="dataInicio">Data de Início</label>
+        <input type="date" id="dataInicio" required />
+      </div>
+
+      <div class="form-group">
+        <label for="observacoes">Observações (õbservacoes)</label>
+        <input type="text" id="observacoes" placeholder="Opcional..." />
+      </div>
+
+      <button type="submit" class="btn-primary">Enviar Solicitação</button>
+    </form>
+  </div>
+
+  <!-- Tabela de Listagem -->
+  <div class="card">
+    <h2>📋 Solicitações Cadastradas (GET)</h2>
+    <div style="overflow-x: auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Funcionário</th>
+            <th>Início</th>
+            <th>Término</th>
+            <th>Dias</th>
+            <th>Observações</th>
+            <th>Solicitado em</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaCorpo">
+          <tr><td colspan="8" style="text-align: center; color: #6b7280;">Carregando dados...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  function getBaseUrl() {
+    return document.getElementById('apiUrl').value.trim().replace(/\/+$/, '');
+  }
+
+  function mostrarToast(msg, tipo = 'success') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = `toast ${tipo} show`;
+    setTimeout(() => { t.className = 'toast'; }, 3000);
+  }
+
+  function formatarData(dataStr) {
+    if (!dataStr) return '-';
+    const d = new Date(dataStr);
+    return isNaN(d) ? dataStr : d.toLocaleDateString('pt-BR');
+  }
+
+  // GET: /api/SolicitacoesFerias
+  async function carregarSolicitacoes() {
+    const url = `${getBaseUrl()}/api/SolicitacoesFerias`;
+    const tbody = document.getElementById('tabelaCorpo');
+    tbody.innerHTML = `<tr><td colspan="8" style="text-align: center;">Buscando da API...</td></tr>`;
+
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
+      
+      const dados = await response.json();
+      
+      if (!dados || dados.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: #6b7280;">Nenhuma solicitação encontrada.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = dados.map(item => `
+        <tr>
+          <td>${item.id || item.Id || '-'}</td>
+          <td><strong>${item.nomeFuncionario || item.NomeFuncionario || '-'}</strong></td>
+          <td>${formatarData(item.dataInicio || item.DataInicio)}</td>
+          <td>${formatarData(item.dataFim || item.DataFim)}</td>
+          <td>${item.dias || item.Dias || '-'}</td>
+          <td>${item.õbservacoes || item.Ôbservacoes || item.observacoes || '-'}</td>
+          <td>${formatarData(item.dataSolicitacao || item.DataSolicitacao)}</td>
+          <td>
+            <button class="btn-danger" onclick="deletarSolicitacao(${item.id || item.Id})">Deletar</button>
+          </td>
+        </tr>
+      `).join('');
+    } catch (err) {
+      console.error(err);
+      tbody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: var(--danger);">Falha ao conectar na API. Verifique se o backend está rodando e o CORS liberado.</td></tr>`;
+      mostrarToast('Erro ao carregar dados da API', 'error');
+    }
+  }
+
+  // POST: /api/SolicitacoesFerias
+  async function enviarSolicitacao(e) {
+    e.preventDefault();
+    const url = `${getBaseUrl()}/api/SolicitacoesFerias`;
+
+    // Conforme o Schema SolicitacaoFerias do seu JSON/Controller
+    const payload = {
+      nomeFuncionario: document.getElementById('nomeFuncionario').value.trim(),
+      dias: parseInt(document.getElementById('dias').value),
+      dataInicio: document.getElementById('dataInicio').value + 'T00:00:00',
+      õbservacoes: document.getElementById('observacoes').value.trim()
+    };
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        const erroTexto = await response.text();
+        throw new Error(erroTexto || 'Erro ao salvar solicitação.');
+      }
+
+      mostrarToast('✅ Férias solicitadas com sucesso!', 'success');
+      document.getElementById('formFerias').reset();
+      carregarSolicitacoes();
+    } catch (err) {
+      console.error(err);
+      mostrarToast(err.message || 'Erro ao enviar dados', 'error');
+    }
+  }
+
+  // DELETE: /api/SolicitacoesFerias?id=...
+  async function deletarSolicitacao(id) {
+    if (!confirm(`Deseja realmente deletar a solicitação ID ${id}?`)) return;
+    const url = `${getBaseUrl()}/api/SolicitacoesFerias?id=${id}`;
+
+    try {
+      const response = await fetch(url, { method: 'DELETE' });
+      if (!response.ok) throw new Error('Não foi possível deletar a solicitação');
+
+      mostrarToast('🗑️ Solicitação removida!', 'success');
+      carregarSolicitacoes();
+    } catch (err) {
+      console.error(err);
+      mostrarToast('Erro ao deletar registro', 'error');
+    }
+  }
+
+  // Carrega ao iniciar a página
+  window.onload = carregarSolicitacoes;
+</script>
+</body>
+</html>
