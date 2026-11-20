@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SistemaFerias.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8156ac423e9f2ea2b7b2959afc4c2360ddbdfc9e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6a1ad8c16a0fd2bc6051473d30edaa6bcb3365ef")]
 [assembly: System.Reflection.AssemblyProductAttribute("SistemaFerias.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SistemaFerias.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

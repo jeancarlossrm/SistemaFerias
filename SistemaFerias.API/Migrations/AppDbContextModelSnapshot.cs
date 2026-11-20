@@ -24,10 +24,13 @@ namespace SistemaFerias.API.Migrations
 
             modelBuilder.Entity("SistemaFerias.API.Models.Funcionario", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("DataCriacao")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("DataCriacao")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Nome")
@@ -59,17 +62,28 @@ namespace SistemaFerias.API.Migrations
                     b.Property<int>("Dias")
                         .HasColumnType("int");
 
-                    b.Property<string>("NomeFuncionario")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("NomeFuncionarioId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Õbservacoes")
-                        .IsRequired()
+                    b.Property<string>("Observacoes")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("NomeFuncionarioId");
+
                     b.ToTable("SolicitacoesFerias");
+                });
+
+            modelBuilder.Entity("SistemaFerias.API.Models.SolicitacaoFerias", b =>
+                {
+                    b.HasOne("SistemaFerias.API.Models.Funcionario", "Funcionario")
+                        .WithMany()
+                        .HasForeignKey("NomeFuncionarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Funcionario");
                 });
 #pragma warning restore 612, 618
         }

@@ -5,6 +5,70 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Funcionarios": {
+      "get": {
+        "tags": [
+          "Funcionarios"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Funcionarios"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Funcionario"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Funcionario"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Funcionario"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Funcionarios/{id}": {
+      "get": {
+        "tags": [
+          "Funcionarios"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/SolicitacoesFerias": {
       "get": {
         "tags": [
@@ -69,6 +133,25 @@
   },
   "components": {
     "schemas": {
+      "Funcionario": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataCriacao": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "SolicitacaoFerias": {
         "type": "object",
         "properties": {
@@ -76,9 +159,9 @@
             "type": "integer",
             "format": "int32"
           },
-          "nomeFuncionario": {
-            "type": "string",
-            "nullable": true
+          "nomeFuncionarioId": {
+            "type": "integer",
+            "format": "int32"
           },
           "dataInicio": {
             "type": "string",
@@ -92,7 +175,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "õbservacoes": {
+          "observacoes": {
             "type": "string",
             "nullable": true
           },

@@ -4488,11 +4488,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jean\\Downloads\\UC07\\UC07\\SistemaFerias\\SistemaFerias.API\\SistemaFerias.API.csproj",
+      "projectUniqueName": "C:\\Users\\Jean\\Downloads\\SistemaFerias\\SistemaFerias.API\\SistemaFerias.API.csproj",
       "projectName": "SistemaFerias.API",
-      "projectPath": "C:\\Users\\Jean\\Downloads\\UC07\\UC07\\SistemaFerias\\SistemaFerias.API\\SistemaFerias.API.csproj",
+      "projectPath": "C:\\Users\\Jean\\Downloads\\SistemaFerias\\SistemaFerias.API\\SistemaFerias.API.csproj",
       "packagesPath": "C:\\Users\\Jean\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jean\\Downloads\\UC07\\UC07\\SistemaFerias\\SistemaFerias.API\\obj\\",
+      "outputPath": "C:\\Users\\Jean\\Downloads\\SistemaFerias\\SistemaFerias.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

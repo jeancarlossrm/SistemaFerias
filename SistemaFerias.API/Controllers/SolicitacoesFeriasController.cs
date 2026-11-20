@@ -10,7 +10,7 @@ namespace SistemaFerias.API.Controllers
     [ApiController]
     public class SolicitacoesFeriasController : ControllerBase
     {
-        AppDbContext _dbcontext;
+        private readonly AppDbContext _dbcontext;
         public SolicitacoesFeriasController(AppDbContext dbcontext)
         {
             _dbcontext = dbcontext;
@@ -25,14 +25,15 @@ namespace SistemaFerias.API.Controllers
         [HttpPost]
         public IActionResult SolicitarFerias([FromBody] SolicitacaoFerias novaSolicitacao)
         {
-            if (novaSolicitacao == null || string.IsNullOrWhiteSpace(novaSolicitacao.NomeFuncionario))
-            {
+            if (novaSolicitacao == null)
                 return BadRequest("Por gentileza completar os dados faltantes");
-            }
-            else if (novaSolicitacao.Dias != 20 && novaSolicitacao.Dias != 30)
-            {
+            else if (novaSolicitacao.Dias != 20 && novaSolicitacao.Dias != 30)       
                 return BadRequest("A Solicitação só pode ser feita de 20 ou 30 dias ");
-            }
+
+            var funcionario = _dbcontext.Funcionarios.Find(novaSolicitacao.NomeFuncionarioId);
+            if (funcionario == null) return NotFound(new {erro = "funcionario não encontrado"});
+            if (novaSolicitacao.NomeFuncionarioId <= 0) return BadRequest(new {erro = "Selecione um funcionario"});
+
             novaSolicitacao.DataFim = novaSolicitacao.DataInicio.AddDays(novaSolicitacao.Dias);
             novaSolicitacao.DataSolicitacao = DateTime.Now;
 

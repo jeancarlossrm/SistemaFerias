@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SistemaFerias.API.Migrations
 {
     /// <inheritdoc />
-    public partial class SolicitaçãoFerias : Migration
+    public partial class CriaçãoDoBanco : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,9 +15,10 @@ namespace SistemaFerias.API.Migrations
                 name: "Funcionarios",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -25,32 +26,43 @@ namespace SistemaFerias.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SolitacoesFerias",
+                name: "SolicitacoesFerias",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NomeFuncionario = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NomeFuncionarioId = table.Column<int>(type: "int", nullable: false),
                     DataInicio = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DataFim = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Dias = table.Column<int>(type: "int", nullable: false),
-                    Õbservacoes = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Observacoes = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DataSolicitacao = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SolitacoesFerias", x => x.Id);
+                    table.PrimaryKey("PK_SolicitacoesFerias", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SolicitacoesFerias_Funcionarios_NomeFuncionarioId",
+                        column: x => x.NomeFuncionarioId,
+                        principalTable: "Funcionarios",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SolicitacoesFerias_NomeFuncionarioId",
+                table: "SolicitacoesFerias",
+                column: "NomeFuncionarioId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Funcionarios");
+                name: "SolicitacoesFerias");
 
             migrationBuilder.DropTable(
-                name: "SolitacoesFerias");
+                name: "Funcionarios");
         }
     }
 }

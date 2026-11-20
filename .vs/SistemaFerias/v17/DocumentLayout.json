@@ -1,26 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Jean\\Downloads\\UC07\\UC07\\SistemaFerias\\",
+  "WorkspaceRootPath": "C:\\Users\\Jean\\Downloads\\SistemaFerias\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|c:\\users\\jean\\downloads\\uc07\\uc07\\sistemaferias\\sistemaferias.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|solutionrelative:sistemaferias.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|c:\\users\\jean\\downloads\\sistemaferias\\sistemaferias.api\\controllers\\solicitacoesferiascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|solutionrelative:sistemaferias.api\\controllers\\solicitacoesferiascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|c:\\users\\jean\\downloads\\uc07\\uc07\\sistemaferias\\sistemaferias.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|solutionrelative:sistemaferias.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jean\\Downloads\\SistemaFerias\\SistemaFerias.API\\Migrations\\20261120210025_Observa\u00E7\u00F5esNull.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SistemaFerias.API\\Migrations\\20261120210025_Observa\u00E7\u00F5esNull.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|c:\\users\\jean\\downloads\\uc07\\uc07\\sistemaferias\\sistemaferias.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|solutionrelative:sistemaferias.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|c:\\users\\jean\\downloads\\uc07\\uc07\\sistemaferias\\sistemaferias.api\\models\\solicitacaoferias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|c:\\users\\jean\\downloads\\sistemaferias\\sistemaferias.api\\models\\solicitacaoferias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|solutionrelative:sistemaferias.api\\models\\solicitacaoferias.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|c:\\users\\jean\\downloads\\uc07\\uc07\\sistemaferias\\sistemaferias.api\\models\\funcionario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|c:\\users\\jean\\downloads\\sistemaferias\\sistemaferias.api\\models\\funcionario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|solutionrelative:sistemaferias.api\\models\\funcionario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|c:\\users\\jean\\downloads\\sistemaferias\\sistemaferias.api\\controllers\\funcionarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|solutionrelative:sistemaferias.api\\controllers\\funcionarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|c:\\users\\jean\\downloads\\sistemaferias\\sistemaferias.api\\migrations\\20261119014129_cria\u00E7\u00E3odobanco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BC7A0BF-D39E-4707-91CA-D8AC65A5E528}|SistemaFerias.API\\SistemaFerias.API.csproj|solutionrelative:sistemaferias.api\\migrations\\20261119014129_cria\u00E7\u00E3odobanco.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +34,83 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Jean\\Downloads\\UC07\\UC07\\SistemaFerias\\SistemaFerias.API\\Program.cs",
-              "RelativeDocumentMoniker": "SistemaFerias.API\\Program.cs",
-              "ToolTip": "C:\\Users\\Jean\\Downloads\\UC07\\UC07\\SistemaFerias\\SistemaFerias.API\\Program.cs",
-              "RelativeToolTip": "SistemaFerias.API\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAArAAAAAAAAAA==",
+              "Title": "20261120210025_Observa\u00E7\u00F5esNull.cs",
+              "DocumentMoniker": "C:\\Users\\Jean\\Downloads\\SistemaFerias\\SistemaFerias.API\\Migrations\\20261120210025_Observa\u00E7\u00F5esNull.cs",
+              "RelativeDocumentMoniker": "SistemaFerias.API\\Migrations\\20261120210025_Observa\u00E7\u00F5esNull.cs",
+              "ToolTip": "C:\\Users\\Jean\\Downloads\\SistemaFerias\\SistemaFerias.API\\Migrations\\20261120210025_Observa\u00E7\u00F5esNull.cs",
+              "RelativeToolTip": "SistemaFerias.API\\Migrations\\20261120210025_Observa\u00E7\u00F5esNull.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-17T14:32:46.008Z",
+              "WhenOpened": "2026-11-20T21:00:25.709Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Jean\\Downloads\\UC07\\UC07\\SistemaFerias\\SistemaFerias.API\\appsettings.json",
-              "RelativeDocumentMoniker": "SistemaFerias.API\\appsettings.json",
-              "ToolTip": "C:\\Users\\Jean\\Downloads\\UC07\\UC07\\SistemaFerias\\SistemaFerias.API\\appsettings.json",
-              "RelativeToolTip": "SistemaFerias.API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-11-17T14:28:25.338Z",
-              "EditorCaption": ""
+              "DocumentIndex": 5,
+              "Title": "20261119014129_Cria\u00E7\u00E3oDoBanco.cs",
+              "DocumentMoniker": "C:\\Users\\Jean\\Downloads\\SistemaFerias\\SistemaFerias.API\\Migrations\\20261119014129_Cria\u00E7\u00E3oDoBanco.cs",
+              "RelativeDocumentMoniker": "SistemaFerias.API\\Migrations\\20261119014129_Cria\u00E7\u00E3oDoBanco.cs",
+              "ToolTip": "C:\\Users\\Jean\\Downloads\\SistemaFerias\\SistemaFerias.API\\Migrations\\20261119014129_Cria\u00E7\u00E3oDoBanco.cs",
+              "RelativeToolTip": "SistemaFerias.API\\Migrations\\20261119014129_Cria\u00E7\u00E3oDoBanco.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-19T01:41:30.263Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Jean\\Downloads\\UC07\\UC07\\SistemaFerias\\SistemaFerias.API\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "SistemaFerias.API\\Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\Jean\\Downloads\\UC07\\UC07\\SistemaFerias\\SistemaFerias.API\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "SistemaFerias.API\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Title": "SolicitacaoFerias.cs",
+              "DocumentMoniker": "C:\\Users\\Jean\\Downloads\\SistemaFerias\\SistemaFerias.API\\Models\\SolicitacaoFerias.cs",
+              "RelativeDocumentMoniker": "SistemaFerias.API\\Models\\SolicitacaoFerias.cs",
+              "ToolTip": "C:\\Users\\Jean\\Downloads\\SistemaFerias\\SistemaFerias.API\\Models\\SolicitacaoFerias.cs",
+              "RelativeToolTip": "SistemaFerias.API\\Models\\SolicitacaoFerias.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-17T14:19:00.475Z",
+              "WhenOpened": "2026-11-19T01:23:39.227Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "SolicitacaoFerias.cs",
-              "DocumentMoniker": "C:\\Users\\Jean\\Downloads\\UC07\\UC07\\SistemaFerias\\SistemaFerias.API\\Models\\SolicitacaoFerias.cs",
-              "RelativeDocumentMoniker": "SistemaFerias.API\\Models\\SolicitacaoFerias.cs",
-              "ToolTip": "C:\\Users\\Jean\\Downloads\\UC07\\UC07\\SistemaFerias\\SistemaFerias.API\\Models\\SolicitacaoFerias.cs",
-              "RelativeToolTip": "SistemaFerias.API\\Models\\SolicitacaoFerias.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA3AAAAAAAAAA==",
+              "Title": "Funcionario.cs",
+              "DocumentMoniker": "C:\\Users\\Jean\\Downloads\\SistemaFerias\\SistemaFerias.API\\Models\\Funcionario.cs",
+              "RelativeDocumentMoniker": "SistemaFerias.API\\Models\\Funcionario.cs",
+              "ToolTip": "C:\\Users\\Jean\\Downloads\\SistemaFerias\\SistemaFerias.API\\Models\\Funcionario.cs",
+              "RelativeToolTip": "SistemaFerias.API\\Models\\Funcionario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-17T14:16:12.723Z",
+              "WhenOpened": "2026-11-19T00:57:04.436Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Funcionario.cs",
-              "DocumentMoniker": "C:\\Users\\Jean\\Downloads\\UC07\\UC07\\SistemaFerias\\SistemaFerias.API\\Models\\Funcionario.cs",
-              "RelativeDocumentMoniker": "SistemaFerias.API\\Models\\Funcionario.cs",
-              "ToolTip": "C:\\Users\\Jean\\Downloads\\UC07\\UC07\\SistemaFerias\\SistemaFerias.API\\Models\\Funcionario.cs",
-              "RelativeToolTip": "SistemaFerias.API\\Models\\Funcionario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAXAAAAAAAAAA==",
+              "Title": "FuncionariosController.cs",
+              "DocumentMoniker": "C:\\Users\\Jean\\Downloads\\SistemaFerias\\SistemaFerias.API\\Controllers\\FuncionariosController.cs",
+              "RelativeDocumentMoniker": "SistemaFerias.API\\Controllers\\FuncionariosController.cs",
+              "ToolTip": "C:\\Users\\Jean\\Downloads\\SistemaFerias\\SistemaFerias.API\\Controllers\\FuncionariosController.cs",
+              "RelativeToolTip": "SistemaFerias.API\\Controllers\\FuncionariosController.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAcwCMAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-17T14:10:17.48Z",
+              "WhenOpened": "2026-11-19T00:25:19.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SolicitacoesFeriasController.cs",
+              "DocumentMoniker": "C:\\Users\\Jean\\Downloads\\SistemaFerias\\SistemaFerias.API\\Controllers\\SolicitacoesFeriasController.cs",
+              "RelativeDocumentMoniker": "SistemaFerias.API\\Controllers\\SolicitacoesFeriasController.cs",
+              "ToolTip": "C:\\Users\\Jean\\Downloads\\SistemaFerias\\SistemaFerias.API\\Controllers\\SolicitacoesFeriasController.cs*",
+              "RelativeToolTip": "SistemaFerias.API\\Controllers\\SolicitacoesFeriasController.cs*",
+              "ViewState": "AgIAABUAAAAAAAAAAAAqwCIAAABxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-19T00:19:15.533Z",
               "EditorCaption": ""
             }
           ]

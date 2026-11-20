@@ -3,237 +3,282 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Teste - SistemaFerias.API</title>
+  <title>Sistema de Férias - API</title>
   <style>
-    :root {
-      --primary: #2563eb; --primary-dark: #1d4ed8; --success: #16a34a; --danger: #dc2626;
-      --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb; --gray-700: #374151; --gray-900: #111827;
-      --radius: 10px; --shadow: 0 4px 6px -1px rgba(0,0,0,.1);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f0f2f5; color: var(--gray-900); padding: 20px; }
-    .container { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
-    header { background: #fff; padding: 20px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; }
-    header h1 { font-size: 1.5rem; color: var(--primary); }
-    header p { color: var(--gray-700); font-size: 0.9rem; margin-top: 5px; }
-    
-    .card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 20px; }
-    .card h2 { font-size: 1.1rem; margin-bottom: 15px; border-bottom: 2px solid var(--gray-100); padding-bottom: 8px; }
-    
-    .form-group { margin-bottom: 15px; }
-    label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--gray-700); margin-bottom: 5px; text-transform: uppercase; }
-    input, select { width: 100%; padding: 10px; border: 1.5px solid var(--gray-200); border-radius: 6px; font-size: 0.95rem; outline: none; transition: border-color .2s; }
-    input:focus, select:focus { border-color: var(--primary); }
-    
-    button { padding: 10px 16px; border-radius: 6px; font-size: 0.9rem; font-weight: 600; cursor: pointer; border: none; transition: background .2s; }
-    .btn-primary { background: var(--primary); color: #fff; }
-    .btn-primary:hover { background: var(--primary-dark); }
-    .btn-danger { background: var(--danger); color: #fff; padding: 6px 10px; font-size: 0.8rem; }
-    .btn-danger:hover { background: #b91c1c; }
-
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem; }
-    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--gray-200); }
-    th { background: var(--gray-50); font-weight: 700; color: var(--gray-700); }
-    tr:hover td { background: var(--gray-50); }
-    
-    .config-box { display: flex; gap: 10px; align-items: flex-end; margin-bottom: 15px; }
-    .config-box .form-group { flex: 1; margin-bottom: 0; }
-    
-    .toast { position: fixed; bottom: 20px; right: 20px; background: var(--gray-900); color: #fff; padding: 10px 16px; border-radius: 6px; font-size: 0.85rem; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 1000; }
-    .toast.show { opacity: 1; }
-    .toast.success { background: var(--success); }
-    .toast.error { background: var(--danger); }
+    body { font-family: Arial, sans-serif; background: #f4f4f9; margin: 0; padding: 20px; }
+    .container { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    .card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h2, h3 { color: #333; margin-top: 0; }
+    .row-inline { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; }
+    .row-inline .form-group { flex: 1; min-width: 200px; margin-bottom: 0; }
+    .form-group { margin-bottom: 14px; display: flex; flex-direction: column; }
+    label { font-weight: bold; margin-bottom: 5px; font-size: 0.85rem; color: #444; }
+    input, select { padding: 8px 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 0.95rem; }
+    button { background: #007bff; color: white; border: none; padding: 9px 14px; border-radius: 4px; cursor: pointer; font-size: 0.95rem; }
+    button:hover { background: #0056b3; }
+    .btn-success { background: #198754; }
+    .btn-success:hover { background: #157347; }
+    .btn-danger { background: #dc3545; padding: 5px 10px; font-size: 0.85rem; }
+    .btn-danger:hover { background: #a71d2a; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.9rem; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background: #007bff; color: white; }
+    .msg { margin-top: 10px; font-size: 0.9rem; font-weight: bold; }
+    .ok { color: #198754; }
+    .err { color: #dc3545; }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <header>
-    <h1>🏖️ Teste local - SistemaFerias.API</h1>
-    <p>Interface HTML pura baseada no seu contrato e controller C#</p>
-  </header>
-
-  <!-- Configuração da URL da API -->
-  <div class="card">
-    <h2>⚙️ Configuração do Endpoint</h2>
-    <div class="config-box">
-      <div class="form-group">
-        <label for="apiUrl">URL base da API (C#)</label>
-        <input type="text" id="apiUrl" value="https://localhost:7272" />
-      </div>
-      <button class="btn-primary" onclick="carregarSolicitacoes()">🔄 Atualizar Dados</button>
+  <div class="container">
+    <!-- Cadastro Rápido de Funcionário -->
+    <div class="card">
+      <h3>Novo Funcionário</h3>
+      <form id="formFuncionario" onsubmit="cadastrarFuncionario(event)" class="row-inline">
+        <div class="form-group">
+          <label for="novoNomeFuncionario">Nome do Funcionário</label>
+          <input type="text" id="novoNomeFuncionario" required placeholder="Ex: Maria Oliveira" />
+        </div>
+        <button type="submit" class="btn-success">Cadastrar Funcionário</button>
+      </form>
+      <div id="msgFuncionario" class="msg"></div>
     </div>
-  </div>
 
-  <!-- Formulário de Solicitação -->
-  <div class="card">
-    <h2>📝 Nova Solicitação de Férias (POST)</h2>
-    <form id="formFerias" onsubmit="enviarSolicitacao(event)">
-      <div class="form-group">
-        <label for="nomeFuncionario">Nome do Funcionário</label>
-        <input type="text" id="nomeFuncionario" placeholder="Ex: Maria Silva" required />
+    <!-- Solicitação de Férias -->
+    <div class="card">
+      <h2>Solicitação de Férias</h2>
+      <form id="formFerias" onsubmit="salvarSolicitacao(event)">
+        <div class="form-group">
+          <label for="nomeFuncionarioId">Funcionário</label>
+          <select id="nomeFuncionarioId" required>
+            <option value="">Carregando funcionários...</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="dataInicio">Data de Início</label>
+          <input type="date" id="dataInicio" required />
+        </div>
+
+        <div class="form-group">
+          <label for="dias">Quantidade de Dias</label>
+          <select id="dias" required>
+            <option value="">Selecione...</option>
+            <option value="20">20 dias</option>
+            <option value="30">30 dias</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="observacoes">Observações</label>
+          <input type="text" id="observacoes" placeholder="Opcional..." />
+        </div>
+
+        <button type="submit">Cadastrar Solicitação</button>
+      </form>
+      <div id="msgFerias" class="msg"></div>
+    </div>
+
+    <!-- Lista de Solicitações -->
+    <div class="card">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h3>Solicitações Registradas</h3>
+        <button onclick="carregarTudo()">Atualizar</button>
       </div>
-
-      <div class="form-group">
-        <label for="dias">Quantidade de Dias (Apenas 20 ou 30)</label>
-        <select id="dias" required>
-          <option value="">— Selecione —</option>
-          <option value="20">20 dias</option>
-          <option value="30">30 dias</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="dataInicio">Data de Início</label>
-        <input type="date" id="dataInicio" required />
-      </div>
-
-      <div class="form-group">
-        <label for="observacoes">Observações (õbservacoes)</label>
-        <input type="text" id="observacoes" placeholder="Opcional..." />
-      </div>
-
-      <button type="submit" class="btn-primary">Enviar Solicitação</button>
-    </form>
-  </div>
-
-  <!-- Tabela de Listagem -->
-  <div class="card">
-    <h2>📋 Solicitações Cadastradas (GET)</h2>
-    <div style="overflow-x: auto;">
       <table>
         <thead>
           <tr>
-            <th>ID</th>
             <th>Funcionário</th>
             <th>Início</th>
             <th>Término</th>
             <th>Dias</th>
             <th>Observações</th>
-            <th>Solicitado em</th>
             <th>Ações</th>
           </tr>
         </thead>
         <tbody id="tabelaCorpo">
-          <tr><td colspan="8" style="text-align: center; color: #6b7280;">Carregando dados...</td></tr>
+          <tr><td colspan="7" style="text-align:center;">Carregando...</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-</div>
+  <script>
+    const BASE_URL = 'https://localhost:7272/api';
+    let funcionariosCache = [];
 
-<div class="toast" id="toast"></div>
+    function setMsg(id, texto, erro = false) {
+      const el = document.getElementById(id);
+      el.textContent = texto;
+      el.className = `msg ${erro ? 'err' : 'ok'}`;
+    }
 
-<script>
-  function getBaseUrl() {
-    return document.getElementById('apiUrl').value.trim().replace(/\/+$/, '');
-  }
+    async function carregarFuncionarios() {
+      const select = document.getElementById('nomeFuncionarioId');
+      try {
+        const res = await fetch(`${BASE_URL}/Funcionarios`);
+        if (!res.ok) throw new Error('Falha ao buscar funcionários');
+        funcionariosCache = await res.json();
 
-  function mostrarToast(msg, tipo = 'success') {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.className = `toast ${tipo} show`;
-    setTimeout(() => { t.className = 'toast'; }, 3000);
-  }
-
-  function formatarData(dataStr) {
-    if (!dataStr) return '-';
-    const d = new Date(dataStr);
-    return isNaN(d) ? dataStr : d.toLocaleDateString('pt-BR');
-  }
-
-  // GET: /api/SolicitacoesFerias
-  async function carregarSolicitacoes() {
-    const url = `${getBaseUrl()}/api/SolicitacoesFerias`;
-    const tbody = document.getElementById('tabelaCorpo');
-    tbody.innerHTML = `<tr><td colspan="8" style="text-align: center;">Buscando da API...</td></tr>`;
-
-    try {
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
-      
-      const dados = await response.json();
-      
-      if (!dados || dados.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: #6b7280;">Nenhuma solicitação encontrada.</td></tr>`;
-        return;
+        select.innerHTML = '<option value="">Selecione um funcionário...</option>';
+        funcionariosCache.forEach(f => {
+          const id = f.id ?? f.Id;
+          const nome = f.nome ?? f.Nome ?? `Funcionário #${id}`;
+          const opt = document.createElement('option');
+          opt.value = id;
+          opt.textContent = nome;
+          select.appendChild(opt);
+        });
+      } catch (err) {
+        console.error(err);
+        select.innerHTML = '<option value="">Erro ao carregar funcionários</option>';
       }
-
-      tbody.innerHTML = dados.map(item => `
-        <tr>
-          <td>${item.id || item.Id || '-'}</td>
-          <td><strong>${item.nomeFuncionario || item.NomeFuncionario || '-'}</strong></td>
-          <td>${formatarData(item.dataInicio || item.DataInicio)}</td>
-          <td>${formatarData(item.dataFim || item.DataFim)}</td>
-          <td>${item.dias || item.Dias || '-'}</td>
-          <td>${item.õbservacoes || item.Ôbservacoes || item.observacoes || '-'}</td>
-          <td>${formatarData(item.dataSolicitacao || item.DataSolicitacao)}</td>
-          <td>
-            <button class="btn-danger" onclick="deletarSolicitacao(${item.id || item.Id})">Deletar</button>
-          </td>
-        </tr>
-      `).join('');
-    } catch (err) {
-      console.error(err);
-      tbody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: var(--danger);">Falha ao conectar na API. Verifique se o backend está rodando e o CORS liberado.</td></tr>`;
-      mostrarToast('Erro ao carregar dados da API', 'error');
     }
-  }
 
-  // POST: /api/SolicitacoesFerias
-  async function enviarSolicitacao(e) {
-    e.preventDefault();
-    const url = `${getBaseUrl()}/api/SolicitacoesFerias`;
+    async function cadastrarFuncionario(e) {
+      e.preventDefault();
+      const nome = document.getElementById('novoNomeFuncionario').value.trim();
+      if (!nome) return;
 
-    // Conforme o Schema SolicitacaoFerias do seu JSON/Controller
-    const payload = {
-      nomeFuncionario: document.getElementById('nomeFuncionario').value.trim(),
-      dias: parseInt(document.getElementById('dias').value),
-      dataInicio: document.getElementById('dataInicio').value + 'T00:00:00',
-      õbservacoes: document.getElementById('observacoes').value.trim()
-    };
+      try {
+        const res = await fetch(`${BASE_URL}/Funcionarios`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nome })
+        });
 
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
+        if (!res.ok) {
+          const erro = await res.text();
+          setMsg('msgFuncionario', erro || 'Erro ao cadastrar funcionário.', true);
+          return;
+        }
 
-      if (!response.ok) {
-        const erroTexto = await response.text();
-        throw new Error(erroTexto || 'Erro ao salvar solicitação.');
+        const criado = await res.json();
+        document.getElementById('formFuncionario').reset();
+        setMsg('msgFuncionario', 'Funcionário cadastrado!');
+        await carregarFuncionarios();
+        const novoId = criado.id ?? criado.Id;
+        if (novoId) document.getElementById('nomeFuncionarioId').value = novoId;
+      } catch (err) {
+        setMsg('msgFuncionario', 'Erro de conexão com a API.', true);
       }
-
-      mostrarToast('✅ Férias solicitadas com sucesso!', 'success');
-      document.getElementById('formFerias').reset();
-      carregarSolicitacoes();
-    } catch (err) {
-      console.error(err);
-      mostrarToast(err.message || 'Erro ao enviar dados', 'error');
     }
-  }
 
-  // DELETE: /api/SolicitacoesFerias?id=...
-  async function deletarSolicitacao(id) {
-    if (!confirm(`Deseja realmente deletar a solicitação ID ${id}?`)) return;
-    const url = `${getBaseUrl()}/api/SolicitacoesFerias?id=${id}`;
-
-    try {
-      const response = await fetch(url, { method: 'DELETE' });
-      if (!response.ok) throw new Error('Não foi possível deletar a solicitação');
-
-      mostrarToast('🗑️ Solicitação removida!', 'success');
-      carregarSolicitacoes();
-    } catch (err) {
-      console.error(err);
-      mostrarToast('Erro ao deletar registro', 'error');
+    function obterNomeFuncionario(item) {
+      const funcObj = item.funcionario ?? item.Funcionario;
+      if (funcObj && (funcObj.nome || funcObj.Nome)) {
+        return funcObj.nome || funcObj.Nome;
+      }
+      const funcId = item.nomeFuncionarioId ?? item.NomeFuncionarioId;
+      const encontrado = funcionariosCache.find(f => (f.id ?? f.Id) === funcId);
+      return encontrado ? (encontrado.nome ?? encontrado.Nome) : `ID #${funcId}`;
     }
-  }
 
-  // Carrega ao iniciar a página
-  window.onload = carregarSolicitacoes;
-</script>
+    async function carregarSolicitacoes() {
+      const tbody = document.getElementById('tabelaCorpo');
+      try {
+        const res = await fetch(`${BASE_URL}/SolicitacoesFerias`);
+        if (!res.ok) throw new Error('Falha ao buscar solicitações');
+        const dados = await res.json();
+
+        tbody.innerHTML = '';
+        if (!dados.length) {
+          tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;">Nenhuma solicitação encontrada.</td></tr>';
+          return;
+        }
+
+        dados.forEach(item => {
+          const id = item.id ?? item.Id;
+          const nomeFunc = obterNomeFuncionario(item);
+          const inicio = formatarData(item.dataInicio ?? item.DataInicio);
+          const fim = formatarData(item.dataFim ?? item.DataFim);
+          const dias = item.dias ?? item.Dias ?? '-';
+          const obs = item.observacoes ?? item.Observacoes ?? '-';
+
+          tbody.innerHTML += `
+            <tr>
+              <td>${nomeFunc}</td>
+              <td>${inicio}</td>
+              <td>${fim}</td>
+              <td>${dias}</td>
+              <td>${obs}</td>
+              <td><button class="btn-danger" onclick="excluir(${id})">Excluir</button></td>
+            </tr>
+          `;
+        });
+      } catch (err) {
+        console.error(err);
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; color:#dc3545;">Erro ao conectar na API.</td></tr>';
+      }
+    }
+
+async function salvarSolicitacao(e) {
+  e.preventDefault();
+
+  const dataInicio = document.getElementById('dataInicio').value;
+
+  const payload = {
+    nomeFuncionarioId: parseInt(document.getElementById('nomeFuncionarioId').value, 10),
+    dataInicio: `${dataInicio}T00:00:00`,
+    dias: parseInt(document.getElementById('dias').value, 10),
+    observacoes: document.getElementById('observacoes').value.trim() || null
+  };
+
+  console.log('Payload enviado:', payload);
+
+  try {
+    const res = await fetch(`${BASE_URL}/SolicitacoesFerias`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (!res.ok) {
+      const texto = await res.text();
+      console.error('Resposta da API:', res.status, texto);
+      let msg = texto;
+      try {
+        const j = JSON.parse(texto);
+        msg = j.errors ? Object.values(j.errors).flat().join(' | ') : (j.title || j.erro || texto);
+      } catch {}
+      setMsg('msgFerias', msg || 'Erro ao cadastrar solicitação.', true);
+      return;
+    }
+
+    document.getElementById('formFerias').reset();
+    setMsg('msgFerias', 'Solicitação cadastrada com sucesso!');
+    await carregarSolicitacoes();
+  } catch (err) {
+    setMsg('msgFerias', 'Erro de conexão ao enviar dados.', true);
+  }
+}
+
+    async function excluir(id) {
+      if (!confirm('Deseja realmente excluir esta solicitação?')) return;
+      try {
+        const res = await fetch(`${BASE_URL}/SolicitacoesFerias?id=${id}`, { method: 'DELETE' });
+        if (res.ok || res.status === 204) {
+          await carregarSolicitacoes();
+        } else {
+          alert('Não foi possível excluir.');
+        }
+      } catch (err) {
+        alert('Erro ao excluir.');
+      }
+    }
+
+    function formatarData(dataStr) {
+      if (!dataStr) return '-';
+      const d = new Date(dataStr);
+      return isNaN(d) ? dataStr : d.toLocaleDateString('pt-BR');
+    }
+
+    async function carregarTudo() {
+      await carregarFuncionarios();
+      await carregarSolicitacoes();
+    }
+
+    window.onload = carregarTudo;
+  </script>
 </body>
 </html>

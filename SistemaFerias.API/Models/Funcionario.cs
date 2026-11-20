@@ -2,8 +2,8 @@
 {
     public class Funcionario
     {
-        public string Id { get; set; }
-        public string Nome { get; set; }
-        public DateTime DataCriacao { get; set; } = DateTime.Now;
+        public int Id { get; set; }
+        public string Nome { get; set; } = string.Empty;
+        public DateTime? DataCriacao { get; set; } = DateTime.Now;
     }
 }
